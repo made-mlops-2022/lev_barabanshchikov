@@ -1,2 +1,2 @@
-# lev_barabanshchikov
-TECHNOPARK ML-21 Барабанщиков Лев
+# ДЗ1
+## Барабанщиков Лев, Технопарк ML-21
