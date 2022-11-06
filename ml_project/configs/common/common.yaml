@@ -1,0 +1,4 @@
+project_dir: ${hydra:runtime.cwd}
+run_name: ${now:%Y-%m-%d_%H-%M-%S}
+artifacts_dir: outputs
+cp_path: weights

@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 
-@dataclass()
+@dataclass
 class FeatureParams:
-    categorical_features: List[str]
-    numerical_features: List[str]
-    target: Optional[str]
+    _target_: str = "ml_project.preprocessing.transformer.Transformer"
+    categorical_features: Optional[List[str]] = None
+    numeric_features: Optional[List[str]] = None

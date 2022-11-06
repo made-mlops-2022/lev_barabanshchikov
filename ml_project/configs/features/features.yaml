@@ -1,0 +1,16 @@
+_target_: ml_project.preprocessing.transformer.Transformer
+categorical_features:
+  - "ca"
+  - "cp"
+  - "exang"
+  - "fbs"
+  - "sex"
+  - "restecg"
+  - "slope"
+  - "thal"
+numeric_features:
+  - "age"
+  - "chol"
+  - "oldpeak"
+  - "thalach"
+  - "trestbps"

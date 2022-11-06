@@ -1,0 +1,5 @@
+data_dir: ${common.project_dir}/data/raw
+data_path: ${dataset.data_dir}/heart_cleveland_upload.csv
+val_size: 0.2
+random_state: 42
+target: condition

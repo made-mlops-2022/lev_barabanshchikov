@@ -3,3 +3,4 @@ penalty: l2
 solver: liblinear
 C: 1.0
 max_iter: 800
+random_state: 42
