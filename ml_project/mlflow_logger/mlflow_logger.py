@@ -14,9 +14,9 @@ class MlflowLogger:
 
         if self.mlflow_run:
             self.log_dict, self.current_epoch = {}, 0
-            logging.info(f"[Mlflow] logging has been initiated")
+            logging.info("[Mlflow] logging has been initiated")
         else:
-            logging.warning(f"[Mlflow] MLflow is not running!")
+            logging.warning("[Mlflow] MLflow is not running!")
 
     def log_artifact(self, *args, **kwargs):
         if self.mlflow_run:

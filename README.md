@@ -97,8 +97,8 @@ python3 ml_project/predict.py predict.run_name="Имя нужной папки �
     │   ├── train_pipeline.py       <- Train pipeline main script
     │   └── predict.py              <- Inference pipeline main script
     │
-    ├── tests                       <- TODO: Tests for pipelines and functions
-    ├── setup.cfg                   <- TODO: Store pytest configurations
+    ├── tests                       <- Tests for pipelines and functions
+    ├── setup.cfg                   <- Store pytest configurations
     └── setup.py                    <- TODO: Makes project pip installable (pip install -e .) so src can be imported
 
 --------
