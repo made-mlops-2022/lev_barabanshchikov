@@ -11,10 +11,10 @@ from ml_project.utils.tech_magic import get_last_artifacts_path, load_pickle
 
 def get_checkpoint_path(cfg: Config) -> Path:
     checkpoint_path = (
-            Path(cfg.common.project_dir)
-            / cfg.common.artifacts_dir
-            / cfg.prediction.run_name
-            / cfg.common.cp_path
+        Path(cfg.common.project_dir)
+        / cfg.common.artifacts_dir
+        / cfg.prediction.run_name
+        / cfg.common.cp_path
     )
 
     if not checkpoint_path.exists():

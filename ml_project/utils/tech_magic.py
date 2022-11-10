@@ -29,7 +29,8 @@ def get_last_artifacts_path(cfg: Config) -> Union[Path, str]:
     folders = sorted(
         list(
             filter(
-                lambda p: "train_pipeline.log" in list(map(lambda x: x.name, p.iterdir())),
+                lambda p: "train_pipeline.log"
+                in list(map(lambda x: x.name, p.iterdir())),
                 artifacts_dir.iterdir(),
             )
         )

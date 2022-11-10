@@ -14,10 +14,15 @@ from ml_project.dataset.dataset import Dataset
 from ml_project.utils.tech_magic import load_obj
 
 
-def get_data(cfg: Config) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, Any]:
+def get_data(
+    cfg: Config,
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, Any]:
     data, target = Dataset(cfg.dataset).load_dataset()
     train_data, test_data, train_target, test_target = train_test_split(
-        data, target, test_size=cfg.dataset.val_size, random_state=cfg.dataset.random_state
+        data,
+        target,
+        test_size=cfg.dataset.val_size,
+        random_state=cfg.dataset.random_state,
     )
     return train_data, test_data, train_target, test_target
 

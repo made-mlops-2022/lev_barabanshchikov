@@ -11,16 +11,18 @@ class Transformer(BaseEstimator, TransformerMixin):
         self.transformer = ColumnTransformer(
             transformers=[
                 ("scaler", StandardScaler(), list(numeric_features)),
-                ("encoder", OneHotEncoder(handle_unknown="ignore"), list(categorical_features))
-                # TODO: check the impact of sparse=True/False parameter of OHE on metrics
+                (
+                    "encoder",
+                    OneHotEncoder(handle_unknown="ignore"),
+                    list(categorical_features),
+                ),
             ]
         )
 
     def fit(self, df: pd.DataFrame, target=None):
         self.transformer.fit(df, target)
-        # TODO: experiment with [DEBUG] logging functions like this
         return self
 
     def transform(self, df: pd.DataFrame, target=None):
-        self.transformer.transform(df)
+        df = self.transformer.transform(df)
         return df

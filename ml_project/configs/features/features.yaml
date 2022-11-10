@@ -8,9 +8,4 @@ categorical_features:
   - "restecg"
   - "slope"
   - "thal"
-numeric_features:
-  - "age"
-  - "chol"
-  - "oldpeak"
-  - "thalach"
-  - "trestbps"
+numeric_features: ["age", "chol", "oldpeak", "thalach", "trestbps"]

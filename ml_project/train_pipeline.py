@@ -11,7 +11,7 @@ from ml_project.models.train_model import (
     save_artifacts,
     train_model,
     get_score,
-    initialize_logger
+    initialize_logger,
 )
 
 logging.getLogger().setLevel(logging.INFO)

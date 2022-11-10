@@ -13,7 +13,7 @@ from ml_project.entities import (
     MlflowParams,
     LogisticRegressionParams,
     RandomForestParams,
-    PredictParams
+    PredictParams,
 )
 
 
@@ -46,6 +46,8 @@ def store_configs() -> None:
     cs.store(group="configs/metric", name="f1", node=F1Params)
     cs.store(group="configs/metric", name="roc_auc", node=RocAucParams)
     cs.store(group="configs/mlflow", name="mlflow", node=MlflowParams)
-    cs.store(group="configs/model", name="logistic_regression", node=LogisticRegressionParams)
+    cs.store(
+        group="configs/model", name="logistic_regression", node=LogisticRegressionParams
+    )
     cs.store(group="configs/model", name="random_forest", node=RandomForestParams)
     cs.store(group="configs/prediction", name="predict", node=PredictParams)
