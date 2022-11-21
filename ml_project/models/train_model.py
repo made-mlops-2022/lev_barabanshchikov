@@ -8,6 +8,7 @@ import pandas as pd
 from hydra.utils import instantiate
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 from ml_project.entities.config import Config
 from ml_project.dataset.dataset import Dataset
@@ -15,7 +16,7 @@ from ml_project.utils.tech_magic import load_obj
 
 
 def get_data(
-    cfg: Config,
+        cfg: Config,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, Any]:
     data, target = Dataset(cfg.dataset).load_dataset()
     train_data, test_data, train_target, test_target = train_test_split(
@@ -31,7 +32,11 @@ def train_model(cfg: Config, data: pd.DataFrame, target: pd.Series) -> Any:
     model = instantiate(cfg.model)
     data_transformer = instantiate(cfg.features)
     model_pipeline = Pipeline(
-        steps=[("data_transformer", data_transformer), ("classifier", model)]
+        steps=[("scaler", StandardScaler()),
+               (
+                   "encoder",
+                   OneHotEncoder(handle_unknown="ignore"),
+               ), ("classifier", model)]
     )
     model_pipeline.fit(data, target)
     return model_pipeline
