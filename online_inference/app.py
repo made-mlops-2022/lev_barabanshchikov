@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 
 import gdown
 import uvicorn
@@ -13,6 +14,13 @@ from utils import extract_model, extract_data
 from validation import InputData, OutputData
 
 logger = logging.getLogger()
+handler = logging.StreamHandler(sys.stdout)
+formatter = logging.Formatter(
+    "%(asctime)s: %(levelname)s: %(name)s: %(message)s"
+)
+handler.setFormatter(formatter)
+logger.setLevel(logging.DEBUG)
+logger.addHandler(handler)
 
 app = FastAPI()
 
@@ -21,14 +29,14 @@ model = None
 
 @app.get("/")
 def main():
-    return "Welcome to Heart Disease Predictor! It is running and ready."
+    return "Welcome to Heart Disease Predictor! It is running and ready"
 
 
 @app.on_event("startup")
 def load_model():
     model_url = os.getenv("MODEL_URL")
     logger.info(f"Downloading model from {model_url}")
-    # gdown.download_folder(url=model_url, quiet=True, output="online_inference/model")
+    gdown.download_folder(url=model_url, quiet=True, output="online_inference/model")
     global model
     model = extract_model()
     logger.info("Model is loaded")
