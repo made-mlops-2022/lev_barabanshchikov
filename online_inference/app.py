@@ -36,7 +36,7 @@ def main():
 def load_model():
     model_url = os.getenv("MODEL_URL")
     logger.info(f"Downloading model from {model_url}")
-    gdown.download_folder(url=model_url, quiet=True, output="online_inference/model")
+    gdown.download_folder(url=model_url, quiet=True, output="model")
     global model
     model = extract_model()
     logger.info("Model is loaded")

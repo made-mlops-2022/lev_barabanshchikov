@@ -5,7 +5,7 @@ from validation import InputData
 
 
 def extract_model():
-    with open("online_inference/model/model.pkl", "rb") as file:
+    with open("model/model.pkl", "rb") as file:
         model = pickle.load(file)
     return model
 

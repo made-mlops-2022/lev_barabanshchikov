@@ -16,7 +16,7 @@ def download_dataset_from_gdrive():
     if url is None:
         raise ValueError("Url environmental variable is not exported.\n"
                          "Try to execute the following in the command line:\n  export DS_URL='Given URL'")
-    gdown.download_folder(url=url, quiet=True, output="online_inference/data")
+    gdown.download_folder(url=url, quiet=True, output="data")
 
 
 @click.command()
@@ -26,7 +26,7 @@ def download_dataset_from_gdrive():
 def make_request(ds_filename: str, ip: str, port: int):
     if ds_filename == DS_FILENAME:
         download_dataset_from_gdrive()
-    dataset = pd.read_csv(os.path.join("online_inference/data", ds_filename))
+    dataset = pd.read_csv(os.path.join("data", ds_filename))
     dataset.drop(["condition"], axis=1, inplace=True)
     json_dict = {
         "data": dataset.values.tolist(),
