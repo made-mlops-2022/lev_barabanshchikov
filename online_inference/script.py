@@ -27,7 +27,8 @@ def make_request(ds_filename: str, ip: str, port: int):
     if ds_filename == DS_FILENAME:
         download_dataset_from_gdrive()
     dataset = pd.read_csv(os.path.join("data", ds_filename))
-    dataset.drop(["condition"], axis=1, inplace=True)
+    if "condition" in dataset.columns:
+        dataset.drop(["condition"], axis=1, inplace=True)
     json_dict = {
         "data": dataset.values.tolist(),
         "col_names": dataset.columns.tolist()

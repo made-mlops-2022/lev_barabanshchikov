@@ -2,6 +2,10 @@
 
 ## Барабанщиков Лев, Технопарк ML-21
 
+## Датасет
+
+#### https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci
+
 ## Перед запуском
 
 - Рекомендованная версия Python: 3.10
@@ -52,16 +56,16 @@ export DS_URL="https://drive.google.com/drive/folders/1UmZjYMQ5srKSA_5yASab3w5S9
 python3 script.py
 ```
 
-Можно задать свой датасет, ip и порт инференса:
+Можно подать на вход скрипту свой датасет (его нужно положить в папку `online_inference/data`; имя файла не должно быть `heart_cleveland_upload.csv`, иначе скрипт попытается скачать датасет по умолчанию). Также можно указать ip и порт, на которых развертнут инференс:
 
 ```bash
-python3 script.py -d not_heart_cleveland_upload.csv -i 0.0.0.0 -p 8000
+python3 script.py -d heart_cleveland_sample.csv -i 0.0.0.0 -p 8000
 ```
 
 или
 
 ```bash
-python3 script.py --ds_filename not_heart_cleveland_upload.csv --ip 0.0.0.0 --port 8000
+python3 script.py --ds_filename heart_cleveland_sample.csv --ip 0.0.0.0 --port 8000
 ```
 
 ## Тестирование
