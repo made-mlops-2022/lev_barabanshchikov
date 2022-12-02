@@ -1,4 +1,0 @@
-_target_: ml_project.mlflow_logger.mlflow_logger.MlflowLogger
-exp_name: HeartDiseaseClassification
-run_name: ${common.run_name}
-uri: ${common.project_dir}/mlruns
