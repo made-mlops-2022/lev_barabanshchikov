@@ -9,3 +9,14 @@
    прод.
 3. Ежедневно, текущая выбранная нами модель скорит данные и записывает предсказания куда-то.
 4. Эти предсказания используют -- все счастливы =)
+
+### Запуск
+
+```bash
+export FERNET_KEY=$(python -c "from cryptography.fernet import Fernet; FERNET_KEY = Fernet.generate_key().decode(); print(FERNET_KEY)")
+chmod +x ./docker-create-databases/create-databases.sh
+cd images/airflow-ml-base
+docker build -t airflow-ml-base:latest .
+cd -
+USER=<email> PASS=<pw> docker-compose up --build
+```

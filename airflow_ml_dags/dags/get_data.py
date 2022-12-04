@@ -3,7 +3,7 @@ from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.utils.dates import days_ago
 
-from config import DEFAULT_ARGS, DATA_VOLUME
+from config import DEFAULT_ARGS, DATA_MOUNT
 
 with DAG(
         dag_id="generate_data",
@@ -17,11 +17,12 @@ with DAG(
     generate = DockerOperator(
         task_id="airflow-get-data",
         image="airflow-get-data",
-        command="get_data.py /data/raw/{{ ds }}",
+        command="/data/raw/{{ ds }}",
         do_xcom_push=False,
         network_mode="bridge",
         auto_remove="True",
-        volumes=[DATA_VOLUME]
+        mount_tmp_dir=False,
+        mounts=[DATA_MOUNT]
     )
 
     end = EmptyOperator(task_id="downloading_completed")
